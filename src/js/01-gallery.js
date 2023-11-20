@@ -5,6 +5,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { galleryItems } from './gallery-items';
 // Change code below this line
 const container = document.querySelector('.gallery');
+
 container.insertAdjacentHTML('beforeend', createMarkup(galleryItems));
 function createMarkup(arr) {
   return arr
@@ -18,6 +19,7 @@ function createMarkup(arr) {
     )
     .join('');
 }
+container.style.listStyle = 'none';
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
