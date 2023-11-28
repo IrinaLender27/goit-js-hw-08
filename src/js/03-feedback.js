@@ -16,11 +16,15 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 populateInpute();
 function onFormSubmit(event) {
   event.preventDefault();
-  localStorage.removeItem(STORAGE_KEY);
-  formData.email = refs.email.value;
-  formData.message = refs.textarea.value;
-  event.currentTarget.reset();
-  console.log(formData);
+  if (refs.email.value === '' || refs.textarea.value === '') {
+    return alert('Please fill in all the fields!');
+  } else {
+    localStorage.removeItem(STORAGE_KEY);
+    formData.email = refs.email.value;
+    formData.message = refs.textarea.value;
+    event.currentTarget.reset();
+    console.log(formData);
+  }
 }
 
 function onFormInput(event) {
